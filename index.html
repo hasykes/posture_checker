@@ -16,9 +16,16 @@
     <div id="status">Model Loading...</div>
     <!-- Load custom js-->
     <script src="./app.js"></script>
+    <input type="checkbox" id="allowNotifications" onclick=handleCheck(event)>Enable Notifications</input>
+    <button type="button" id="deskButton" onclick=handleDesk(event)>Raise Desk</button>
     <h3>Distance Between Shoulders</h3>
     <div id="distanceBetweenShoulders">Calculating...</div>
     <h3>Distance From Shoulders to Nose</h3>
     <div id="distanceFromShouldersToNose">Calculating...</div>
+    <h3>Shoulder Heights</h3>
+    <div>
+      Left: <span id="leftShoulderHeight"> Calculating...</span> Right:
+      <span id="rightShoulderHeight"> Calculating...</span>
+    </div>
   </body>
 </html>

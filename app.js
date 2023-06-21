@@ -22,6 +22,7 @@ const shoulderLine = {
   y2: slouchHeight,
 };
 
+let checkPosture = true;
 let postureFailCount = 0;
 let sendNotification = false;
 let allowNotification = false;
@@ -58,9 +59,11 @@ function draw() {
 
   // We can call both functions to draw all keypoints and the skeletons
   //console.log(poses);
-  estimatePosture();
-  drawKeypoints();
-  drawSkeleton();
+  if (checkPosture) {
+    estimatePosture();
+    drawKeypoints();
+    drawSkeleton();
+  }
 }
 
 // A function to draw ellipses over the detected keypoints
@@ -210,6 +213,13 @@ function handleDesk(e) {
   }, deskDelay);
 
   deskIsRaised = !deskIsRaised;
+}
+
+function handlePosture(e) {
+  select("#checkPostureButton").html(
+    `${checkPosture ? "Start" : "Stop"} Checking Posture`
+  );
+  checkPosture = !checkPosture;
 }
 /*
 const notifyInterval = setInterval(() => {
